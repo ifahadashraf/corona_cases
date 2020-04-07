@@ -1,0 +1,12 @@
+{% extends "cases/base.html" %}
+{% block content %}
+  <div class="row">
+      <div class="col-sm-12">
+        <form class="form-control" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit">
+        </form>
+      </div>
+  </div>
+{% endblock %}

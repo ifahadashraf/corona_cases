@@ -1,0 +1,40 @@
+{% extends "cases/base.html" %}
+{% block content %}
+  <div class="row">
+      <div class="col-sm-12">
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>NIC</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Address</th>
+                <th>History</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for case in cases %}
+                <tr>
+                    <td>{{ case.name }}</td>
+                    <td>{{ case.nic }}</td>
+                    <td>{{ case.age }}</td>
+                    <td>{{ case.city }}</td>
+                    <td>{{ case.address }}</td>
+                    <td>{{ case.travel_history }}</td>
+                    <td>
+                        <a href="{% url 'cases-update' case_id=case.id %}">
+                            Edit
+                        </a>
+                        <a href="{% url 'cases-delete' case_id=case.id %}">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+      </div>
+  </div>
+{% endblock %}
